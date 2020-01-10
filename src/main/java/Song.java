@@ -8,6 +8,8 @@ public class Song {
     private int length;
     private String genre;
 
+    public Song(){};
+
     public Song(long id, String sname, String aname, String arname, int length, String genre){
         this.song_id = id;
         this.song_name = sname;
