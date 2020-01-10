@@ -1,4 +1,5 @@
 *.iml
 target/
 .idea/
-src/main/java/Config.java
+Config.java
+

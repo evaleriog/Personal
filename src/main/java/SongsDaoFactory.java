@@ -1,5 +1,15 @@
 //this class is to create collection of songs
 
-public class SongsDaoFactory {
+import java.sql.SQLException;
 
+public class SongsDaoFactory {
+    private static Songs songsDao;
+
+    public static Songs getSongsDao(){
+        if(songsDao == null){
+            songsDao = new ListSongs();
+        }
+
+        return songsDao;
+    }
 }
