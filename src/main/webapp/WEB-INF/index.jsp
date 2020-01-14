@@ -3,11 +3,15 @@
 
 <html>
 <head>
-    <title>Welcome</title>
+    <jsp:include page="/WEB-INF/partials/head.jsp">
+        <jsp:param name="title" value="Welcome"/>
+    </jsp:include>
 </head>
 <body>
-    <h1>Welcome to my personal website</h1>
 
+    <jsp:include page="/WEB-INF/partials/navbar.jsp"></jsp:include>
+
+    <h1>Welcome ${userName}</h1>
 
     <c:forEach var="song" items="${songs}">
         <div>
@@ -17,5 +21,6 @@
     </c:forEach>
 
     <p>This is a test to see if we can create a new full-stack application</p>
+    <jsp:include page="/WEB-INF/partials/scripts.jsp"></jsp:include>
 </body>
 </html>

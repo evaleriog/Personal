@@ -16,6 +16,8 @@ public class IndexServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException{
         try {
+            req.setAttribute("userInput", req.getParameter("userInput"));
+            req.setAttribute("passInput", req.getParameter("passInput"));
             Songs allSongs = DaoFactory.getSongsDao();
             List<Song> songs = allSongs.all();
             req.setAttribute("songs", songs);
@@ -25,6 +27,6 @@ public class IndexServlet extends HttpServlet {
             e.printStackTrace();
         }
 
-
     }
+
 }
