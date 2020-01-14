@@ -19,6 +19,14 @@ public class Song {
         this.genre = genre;
     }
 
+    public Song(String sname, String aname, String arname, int length, String genre){
+        this.song_name = sname;
+        this.album_name = aname;
+        this.artist_name = arname;
+        this.length = length;
+        this.genre = genre;
+    }
+
     //Getters
     public long getSong_id(){
         return this.song_id;
