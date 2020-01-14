@@ -1,4 +1,4 @@
-//Model or Java Bean
+package Model;//Model or Java Bean
 
 public class Song {
     private long song_id;

@@ -1,8 +1,8 @@
-//this class is to create collection of songs
+package dao;//this class is to create collection of songs
 
-import java.sql.SQLException;
+import Model.*;
 
-public class SongsDaoFactory {
+public class DaoFactory {
     private static Songs songsDao;
 
     public static Songs getSongsDao(){

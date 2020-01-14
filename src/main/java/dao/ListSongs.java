@@ -1,6 +1,8 @@
+package dao;
+
 import java.sql.*;
 import java.util.*;
-
+import Model.*;
 import com.mysql.cj.jdbc.Driver;
 
 public class ListSongs implements Songs {
@@ -27,7 +29,7 @@ public class ListSongs implements Songs {
             Song one = new Song(rs.getLong("song_id"),rs.getString("song_name"), rs.getString("album_name"), rs.getString("artist_name"), rs.getInt("length"), rs.getString("genre"));
             allsong.add(one);
         }
-        //allsong.add(new Song(1,"song","album", "artist", 345, "genre"));
+        //allsong.add(new Model.Song(1,"song","album", "artist", 345, "genre"));
         return allsong;
     }
 
