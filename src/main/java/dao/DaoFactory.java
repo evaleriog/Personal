@@ -4,6 +4,7 @@ import Model.*;
 
 public class DaoFactory {
     private static Songs songsDao;
+    private static Users usersDao;
 
     public static Songs getSongsDao(){
         if(songsDao == null){
@@ -11,5 +12,13 @@ public class DaoFactory {
         }
 
         return songsDao;
+    }
+
+    public static Users getUsersDao(){
+        if(usersDao == null){
+            usersDao = new UsersDao();
+        }
+
+        return usersDao;
     }
 }

@@ -1,5 +1,9 @@
 package Controllers;
 
+import Model.User;
+import Model.Users;
+import dao.DaoFactory;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -20,11 +24,21 @@ public class LogInServlet extends HttpServlet {
         boolean isCorrect = username.equals("admin") && password.equals("password");
 
         if(username != null && password != null){
-            if(isCorrect){
-                HttpSession logIn = request.getSession();
-                logIn.setAttribute("isLogged", true);
-                logIn.setAttribute("userName", username);
-                request.getRequestDispatcher("/WEB-INF/index.jsp").forward(request, response);
+            Users users = DaoFactory.getUsersDao();
+            User correctUser = users.findUsername(username);
+
+            if(correctUser != null){
+                if(correctUser.getPassword().equals(password)){
+                    HttpSession logIn = request.getSession();
+                    logIn.setAttribute("isLogged", true);
+                    logIn.setAttribute("user", correctUser);
+                    request.getRequestDispatcher("/WEB-INF/index.jsp").forward(request, response);
+                }else {
+                    request.setAttribute("userInput", username);
+                    request.setAttribute("incorrect", "Username & Password Combination Does Not Match");
+                    request.getRequestDispatcher("/WEB-INF/index.jsp").forward(request, response);
+                }
+
             }else {
                 if(!username.equals("")){
                     request.setAttribute("userInput", username);
